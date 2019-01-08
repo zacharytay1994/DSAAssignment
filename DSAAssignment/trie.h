@@ -26,4 +26,6 @@ public:
 	bool searchErrorInsertion(string);
 	// Search with deletion error check
 	bool searchErrorDeletion(string);
+	// Search with substitution error check
+	bool searchErrorSubstitution(string);
 };
