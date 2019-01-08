@@ -19,7 +19,9 @@ public:
 	// Search from dictionary
 	const bool search(const string);
 	// Display all words from closest input
-	const void searchClosest(Trie* trie, const string);
+	const void searchClosest(Trie*, const string);
 	// Find and display words from closest address
-	void traverse(string& prefix, Trie* trie);
+	void traverse(string&, Trie*);
+	// Search with error check
+	bool searchErrorInsertion(string);
 };

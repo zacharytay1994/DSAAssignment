@@ -107,3 +107,33 @@ void Trie::traverse(string & prefix, Trie* trie)
 		}
 	}
 }
+
+bool Trie::searchErrorInsertion(string key)
+{
+	bool check = false;
+	Trie* current = this;
+	if (current->search(key))
+	{
+		return false;
+	}
+	else
+	{
+		for (int i = 0; i < key.length(); i++)
+		{
+			string holder = key;
+			holder.erase(i, 1);
+			if (current->search(holder))
+			{
+				cout << "Insertion error detected." << endl;
+				cout << "Did you mean: " + holder + "?" << endl;
+				check = true;
+			}
+		}
+		if (!check)
+		{
+			cout << "Sorry bro, your word does not exist or your spelling sucks.";
+			return false;
+		}
+		return true;
+	}	
+}
