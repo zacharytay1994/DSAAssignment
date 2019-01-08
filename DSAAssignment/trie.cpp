@@ -12,7 +12,7 @@ Trie::Trie()
 	}
 }
 
-void Trie::insert(string key)
+void Trie::insert(const string key)
 {
 	// Create pointer pointing to address of root node (this)
 	Trie* current = this;
@@ -30,7 +30,7 @@ void Trie::insert(string key)
 	current->isLeaf = true;
 }
 
-bool Trie::search(string key)
+const bool Trie::search(const string key)
 {
 	// If object trie is empty
 	if (this == nullptr)

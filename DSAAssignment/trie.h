@@ -15,10 +15,10 @@ public:
 	// Contructor
 	Trie();
 	// Insert new word in dictionary
-	void insert(string);
+	void insert(const string);
 	// Delete word from dictionary
 	bool deletion(Trie*&, string);
 	// Search from dictionary
-	bool search(string);
+	const bool search(const string);
 	// 
 };
