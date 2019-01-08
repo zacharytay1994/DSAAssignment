@@ -16,9 +16,10 @@ public:
 	Trie();
 	// Insert new word in dictionary
 	void insert(const string);
-	// Delete word from dictionary
-	bool deletion(Trie*&, string);
 	// Search from dictionary
 	const bool search(const string);
-	// 
+	// Display all words from closest input
+	const void searchClosest(Trie* trie, const string);
+	// Find and display words from closest address
+	void traverse(string& prefix, Trie* trie);
 };

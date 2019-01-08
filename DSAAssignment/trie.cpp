@@ -51,3 +51,59 @@ const bool Trie::search(const string key)
 	}
 	return current->isLeaf; // If entire word is found, last letter->isLeaf would return true
 }
+
+const void Trie::searchClosest(Trie* trie, string prefix)
+{
+	bool check = true;
+	if (trie->search(prefix)) // If prefix is a word
+	{
+		cout << prefix << endl;
+	}
+	// If trie is empty
+	if (this == nullptr)
+	{
+		cout << "There is nothing in this damn text file." << endl;
+	}
+	else
+	{
+		Trie* current = this;
+		for (int i = 0; i < prefix.length(); i++)
+		{
+			if (current->character[prefix[i]] == nullptr)
+			{
+				cout << "No such word with prefix found." << endl; // If no prefix exist, break and exit function
+				check = false;
+				break;	
+			}
+			else
+			{
+				current = current->character[prefix[i]]; // Traverse pointer to latest character
+			}	
+		}
+		if (check) // If prefix check is true
+		{
+			traverse(prefix, current); // Call traverse display script
+		}	
+	}
+}
+
+void Trie::traverse(string & prefix, Trie* trie)
+{
+	for (int i = 0; i < CHAR_SIZE; i++)
+	{
+		if (trie->character[i] != nullptr) // Check if array index is null
+		{
+			Trie* temp = trie->character[i]; // Get pointer to check through array
+			char asciiChar = char(i); // Convert int index to ascii character
+			string tempString = prefix + asciiChar; // Join character to prefix
+			if (!temp->isLeaf)
+			{
+				traverse(tempString, temp); // If not leaf, recurse with new prefix and address
+			}
+			else
+			{
+				cout << tempString << endl;	// Else print out word
+			}
+		}
+	}
+}
