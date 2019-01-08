@@ -131,9 +131,44 @@ bool Trie::searchErrorInsertion(string key)
 		}
 		if (!check)
 		{
-			cout << "Sorry bro, your word does not exist or your spelling sucks.";
+			cout << "Sorry bro, your word does not exist or your spelling sucks." << endl;
 			return false;
 		}
 		return true;
 	}	
+}
+
+bool Trie::searchErrorDeletion(string key)
+{
+	char cArray[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}; // I know its probably not the best way
+	bool check = false;
+	Trie* current = this;
+	if (current->search(key))
+	{
+		return false;
+	}
+	else
+	{
+		for (int i = 0; i < key.length(); i++)
+		{
+			for (int j = 0; j < 26; j++)
+			{
+				string holder = key;
+				holder.insert(i, 1, cArray[j]);
+				if (current->search(holder))
+				{
+					cout << "Deletion error detected." << endl;
+					cout << "Did you mean: " + holder + "?" << endl;
+					check = true;
+				}
+			}	
+		}
+		if (!check)
+		{
+			cout << "Sorry bro, your word does not exist or your spelling sucks." << endl;
+			return false;
+		}
+		return true;
+	}
+	return false;
 }
