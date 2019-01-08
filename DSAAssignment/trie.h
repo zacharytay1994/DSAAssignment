@@ -23,9 +23,11 @@ public:
 	// Find and display words from closest address
 	void traverse(string&, Trie*);
 	// Search with insertion error check
-	bool searchErrorInsertion(string);
+	const bool searchErrorInsertion(string);
 	// Search with deletion error check
-	bool searchErrorDeletion(string);
+	const bool searchErrorDeletion(string);
 	// Search with substitution error check
-	bool searchErrorSubstitution(string);
+	const bool searchErrorSubstitution(string);
+	// Search with transposition error check
+	const bool searchErrorTransposition(string);
 };

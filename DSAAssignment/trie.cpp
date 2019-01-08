@@ -108,7 +108,7 @@ void Trie::traverse(string & prefix, Trie* trie)
 	}
 }
 
-bool Trie::searchErrorInsertion(string key)
+const bool Trie::searchErrorInsertion(string key)
 {
 	bool check = false;
 	Trie* current = this;
@@ -138,7 +138,7 @@ bool Trie::searchErrorInsertion(string key)
 	}	
 }
 
-bool Trie::searchErrorDeletion(string key)
+const bool Trie::searchErrorDeletion(string key)
 {
 	char cArray[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'}; // I know its probably not the best way
 	bool check = false;
@@ -172,7 +172,7 @@ bool Trie::searchErrorDeletion(string key)
 	}
 }
 
-bool Trie::searchErrorSubstitution(string key)
+const bool Trie::searchErrorSubstitution(string key)
 {
 	char cArray[26] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' }; // I know its probably not the best way
 	bool check = false;
@@ -195,6 +195,39 @@ bool Trie::searchErrorSubstitution(string key)
 					cout << "Did you mean: " + holder + "?" << endl;
 					check = true;
 				}
+			}
+		}
+		if (!check)
+		{
+			cout << "Sorry bro, your word does not exist or your spelling sucks." << endl;
+			return false;
+		}
+		return true;
+	}
+}
+
+const bool Trie::searchErrorTransposition(string key)
+{
+	bool check = false;
+	Trie* current = this;
+	if (current->search(key))
+	{
+		return false;
+	}
+	else
+	{
+		for (int i = 0; i < key.length() - 1; i++)
+		{
+			string holder = key;
+			char val1 = holder.at(i);
+			char val2 = holder.at(i + 1);
+			holder.replace(i, 1, 1, val2);
+			holder.replace(i + 1, 1, 1, val1);
+			if (current->search(holder))
+			{
+				cout << "Transposition error detected." << endl;
+				cout << "Did you mean: " + holder + "?" << endl;
+				check = true;
 			}
 		}
 		if (!check)
