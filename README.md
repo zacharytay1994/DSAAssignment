@@ -8,3 +8,7 @@ The application displays a menu which allows you to select which .txt document y
 - search()
 - searchClosest()
 - traverse()
+- searchErrorIteration()
+- searchErrorDeletion()
+- searchErrorSubstitution()
+- searchErrorTransposition()
