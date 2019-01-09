@@ -3,7 +3,7 @@ Data Structures and Algorithms
 
 The application displays a menu which allows you to select which .txt document you want to read from to use as a dictionary. After initializing dictionary, select from 7 operations which simulate basic dictionary search functions.
 
-# ~ Functions of trie.h/cpp ~
+## ~ Functions of trie.h/cpp ~
 
 **- insert()**
 
@@ -38,5 +38,4 @@ ________________________________________________________________________________
 Gets input, checks if string is valid word without 1 transposition error, suggests correct word.
 ________________________________________________________________________________________________________________________________________
 
-**Check out the Wiki for an indepth explanation of how each function works.**
-/Here/
+**Check out the [wiki](https://github.com/zacharytay1994/DSAAssignment/wiki) for an indepth explanation of how each function works.**
