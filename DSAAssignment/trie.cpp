@@ -87,7 +87,7 @@ const void Trie::searchClosest(Trie* trie, string prefix)
 	}
 }
 
-void Trie::traverse(string & prefix, Trie* trie)
+void Trie::traverse(string prefix, Trie* trie)
 {
 	for (int i = 0; i < CHAR_SIZE; i++)
 	{

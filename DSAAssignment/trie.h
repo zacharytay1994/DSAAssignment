@@ -21,7 +21,7 @@ public:
 	// Display all words from closest input
 	const void searchClosest(Trie*, const string);
 	// Find and display words from closest address
-	void traverse(string&, Trie*);
+	void traverse(string, Trie*);
 	// Search with insertion error check
 	const bool searchErrorInsertion(string);
 	// Search with deletion error check
