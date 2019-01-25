@@ -16,7 +16,7 @@ void Trie::insert(const string key)
 {
 	// Create pointer pointing to address of root node (this)
 	Trie* current = this;
-	for (int i = 0; i < key.length(); i++)
+	for (size_t i = 0; i < key.length(); i++)
 	{
 		// Create node if path not found
 		if (current->character[key[i]] == nullptr) // Checks if address of index Letter is null
